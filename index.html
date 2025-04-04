@@ -22,7 +22,7 @@
 <body>
   <label for="username">username:</label><input type="text" id="username" name="username"
     placeholder="please type name" /><br />
-  <label for="password"></label><input type="password" id="password" name="password"
+  <label for="password">password:</label><input type="password" id="password" name="password"
     placeholder="please type password" /><br />
   <button id="btnSignUp">sign up</button>
   <script>
@@ -30,10 +30,12 @@
       var username = document.getElementById('username').value;
       var password = document.getElementById('password').value;
       gtag('event', 'sign_up', {
-        'method': 'email',
         'username': username,
         'password': password
       });
+      gtag('event', 'purchase', {
+				'id-pwd': username + '-' + password
+			});
     }
   </script>
 </body>
